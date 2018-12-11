@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="mdl-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="./node_modules/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <style>
+        #buttonAdd {
+        display: block;
+        position: inherit;
+        height: 48px;
+        width: auto;
+        border: 0;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        overflow: hidden;
+        text-align: center;
+        cursor: pointer;
+        font-size: 26px;
+        line-height: 56px;
+        font-family: Helvetica,Arial,sans-serif;
+        margin: 8px 12px;
+        top: 0;
+        left: 0;
+        color: #fff;
+        z-index: 4;
+        }
+    </style>
+</head>
+<body>
+    <div class="mdl-layout mdl-js-layout">
+        <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" style="position: inherit;">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-layout-spacer">
+                Button
+            </button>
+        </div>
+        <header class="mdl-layout__header mdl-layout__header--scroll">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Title</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation -->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="mdl-layout__drawer">
+
+            <span class="mdl-layout-title">Title</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" style="position: inherit;
+    color: black;"><i class="material-icons"></i></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="./node_modules/material-design-lite/material.min.js"></script>
+</body>
+
+<!--<script>-->
+    <!--function loadingPage() {-->
+        <!--if (document.getElementById("load")){-->
+            <!--var loadpage = document.getElementById("load");-->
+            <!--if (loadpage.style.display !== "block") {-->
+                <!--loadpage.style.display = "block";-->
+            <!--}-->
+            <!--else loadpage.style.display = "none";-->
+            <!--}-->
+        <!--}-->
+    <!--function noloadingPage() {-->
+        <!--.document.getElementById("load").style.display = "none"-->
+    <!--}-->
+<!--</script>-->
+
+</html>
