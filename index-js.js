@@ -25,14 +25,23 @@ $('.textboxes').hide(
 );
 
 $(document).ready( function(){
-
-    $(".editShow").hide(document.getElementsByClassName(".edit"));
-    $( ".editShow" ).mouseenter(function() {
-            $(this).show();
-        });
-        // .mouseleave(function() {
-        //     $(".editShow").hide(this);
-        // });
+    $(".editShow").hide();
+    $( ".edit" ).mouseenter(function() {
+        $(this).find(".editShow").show();
+    });
+    $( ".edit" ).mouseleave(function() {
+        $(this).find(".editShow").hide();
+    });
+    // $(".editShow").hide(document.getElementsByClassName(".edit"));
+    // $( ".edit" ).mouseenter(function() {
+    //         $(".editShow").show(document.getElementsByClassName(".editShow"));
+    //     });
+    // $( ".editShow" ).mouseleave(function() {
+    //         $(this).hide(document.getElementsByClassName(".editShow"));
+    //     });
+    // $( ".edit" ).mouseenter(function() {
+    //     $(".editShow").show(document.getElementsByClassName(".editShow"));
+    // });
 });
 
 
