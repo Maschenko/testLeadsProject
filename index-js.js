@@ -1,12 +1,20 @@
+//Валидация//
 function validation() {
     var name = $('#name').val();
-    if(name.length >=2) {
-        $('#submit').removeAttr('disabled');
-    } else {
-        $('#submit').attr('disabled', 'disabled');
+    if(name.length >= 2) {
+        $('#submit').removeAttr('disabled'); {
+            if(name.indexOf('!') >= 0) {
+                alert('Уберите знак "!"')
+                $('#submit').attr('disabled', 'disabled');
+            }
+        }
+    }
+    else {
+         $('#submit').attr('disabled', 'disabled');
     }
 }
-////
+//Конец//
+//Редактирование задачи//
 var dialog = document.querySelector('dialog');
 var showDialogButton = document.querySelector('#show-dialog');
 if (! dialog.showModal) {
@@ -18,12 +26,8 @@ showDialogButton.addEventListener('click', function() {
 dialog.querySelector('.close').addEventListener('click', function() {
     dialog.close();
 });
-////
-
-$('.textboxes').hide(
-
-);
-
+//Конец//
+//Показ-Редактирование//
 $(document).ready( function(){
     $(".editShow").hide();
     $( ".edit" ).mouseenter(function() {
@@ -32,51 +36,5 @@ $(document).ready( function(){
     $( ".edit" ).mouseleave(function() {
         $(this).find(".editShow").hide();
     });
-    // $(".editShow").hide(document.getElementsByClassName(".edit"));
-    // $( ".edit" ).mouseenter(function() {
-    //         $(".editShow").show(document.getElementsByClassName(".editShow"));
-    //     });
-    // $( ".editShow" ).mouseleave(function() {
-    //         $(this).hide(document.getElementsByClassName(".editShow"));
-    //     });
-    // $( ".edit" ).mouseenter(function() {
-    //     $(".editShow").show(document.getElementsByClassName(".editShow"));
-    // });
 });
-
-
-// $( "#edit" ).mouseenter(function() {
-//     this.style.background = 'red';
-//     if (mouseover){
-//         this.style.background = '';
-//     }
-//
-//     // alert("Hello");
-//     console.log("Hello");
-//     // $( this ).fadeOut( 100 );
-//     // $( this ).fadeIn( 500 );
-// });
-////
-$( "#edit1" ).mouseenter(function() {
-    this.style.background = 'red';
-});
-$( "#edit2" ).mouseenter(function(e) {
-    this.style.background = 'green';
-    this.children[0].style.background = (e.relatedTarget === this.children[0] ? 'yellow' : '');
-});
-// document.body.onload = addElement;
-// var my_div = newDiv = null;
-//
-// function addElement() {
-//
-//     // создаем новый элемент div
-//     // и добавляем в него немного контента
-//
-//     var newDiv = document.createElement("div");
-//     newDiv.innerHTML = "<h1>Привет!</h1>";
-//
-//     // добавляем только что созданый элемент в дерево DOM
-//
-//     my_div = document.getElementById("org_div1");
-//     document.body.insertBefore(newDiv, my_div);
-// }
+//Конец//
