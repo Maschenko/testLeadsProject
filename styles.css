@@ -1,0 +1,50 @@
+.buttonAdd {
+    display: block;
+    position: inherit;
+    height: auto;
+    width: auto;
+    border: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-align: left;
+    cursor: auto;
+    font-size: 26px;
+    line-height: 56px;
+    font-family: Helvetica,Arial,sans-serif;
+    margin: initial;
+    top: 0;
+    left: 0;
+    color: #fff;
+    z-index: 4;
+}
+.introT {
+    white-space: normal;
+    color: #757575;
+}
+.centerText[type="center1"] {
+    text-align: center;
+}
+#lTitle {
+    padding: 30px 37px;
+    font-size: 18px;
+}
+#tooltip {
+    z-index: 9999;
+    position: absolute;
+    display: none;
+    top:0px;
+    left:0px;
+    width: 250px;
+    background-color: #fff;
+    padding: 5px 10px 5px 10px;
+    color: #000;
+    border: 1px solid #888;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px #555;
+    box-sizing: ;
+}
+.TestonGit {
+    background: red;
+}
