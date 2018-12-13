@@ -4,8 +4,11 @@ function validation() {
     if(name.length >= 2) {
         $('#submit').removeAttr('disabled'); {
             if(name.indexOf('!') >= 0) {
-                alert('Уберите знак "!"')
                 $('#submit').attr('disabled', 'disabled');
+                document.getElementById('wrongSim').style.cssText="visibility: visible";
+            }
+            else {
+                document.getElementById('wrongSim').style.cssText="visibility: hidden";
             }
         }
     }
