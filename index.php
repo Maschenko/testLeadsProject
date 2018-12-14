@@ -1,3 +1,15 @@
+<?php
+require "constants.inc.php";
+$conn = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASSWORD, DB_NAME) or die(mysqli_connect_error());
+$sql = "SELECT * FROM tasks";
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+$cnt = mysqli_affected_rows($conn);
+if (!$cnt) {
+	$errMsg = "Нет задач в базе";
+} else {
+	$errMsg = "";
+}
+?>
 <!DOCTYPE html>
 <html lang="en" class="mdl-js">
 <head>
@@ -79,17 +91,16 @@
                     </tr>
                     </thead>
                     <tbody>
+<?php
+	while($row = mysqli_fetch_assoc($result)) {
+?>
                     <tr class="mdl-list__item-primary-content edit">
-                        <td type="center1" class="centerText">1</td>
+                        <td type="center1" class="centerText"><?=$row["id"]?></td>
                         <i id="tooltip" class="material-icons">
                             edit
                         </i>
                         <td data-tooltip="Редактировать" class="mdl-data-table__cell--non-numeric introT">
-                            Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" Movie. Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" MovieAaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" MovieAaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" Movie
+                           <?=$row["task"]?>
                         </td>
                         <td>
                             <div class="editShow" >
@@ -121,109 +132,35 @@
                                 </dialog>
                             </div>
                         </td>
-                        <td id="time1">12.12.2018</td>
+                        <td id="time1"><?=date("d-m-Y H:i:s", $row["datetime"])?></td>
                         <span for="time1" class="mdl-tooltip mdl-tooltip--right ">в 04:18</span>
 
                         <td>
-                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                            <button class="mdl-button mdl-js-button mdl-button--icon" id="<?=$row["id"]?>">
                                 <i class="material-icons">delete</i>
                             </button>
                         </td>
                     </tr>
-                    <tr class="edit">
-                        <td type="center1" class="centerText">2</td>
-                        <td class="mdl-data-table__cell--non-numeric introT">
-                            Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" Movie. Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" MovieAaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" MovieAaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" Movie
-                        </td>
-                        <td>
-                            <div class="editShow" >
-                                <button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon">
-                                    <i class="material-icons">
-                                        edit
-                                    </i>
-                                </button>
-                                <dialog class="mdl-dialog">
-                                    <form action="#" class="mdl-cell mdl-cell--12-col">
-                                        <h4 class="mdl-dialog__title">Редактирование</h4>
-                                        <div class="mdl-dialog__content">
-                                            <div class="mdl-textfield mdl-js-textfield">
-                                                <input onkeyup="validation()" maxlength="15" class="mdl-textfield__input" type="text" id="name">
-                                                <label class="mdl-textfield__label" for="name">Название задачи</label>
-                                            </div>
-                                        </div>
-                                        <div class="mdl-dialog__actions">
-                                            <button type="button" class="mdl-button">Сохранить</button>
-                                            <button type="button" class="mdl-button close">Отмена</button>
-                                        </div>
-                                    </form>
-                                </dialog>
-                            </div>
-                        </td>
-                        <td id="time2">11.12.2018</td>
-                        <span for="time2" class="mdl-tooltip mdl-tooltip--right ">в 12:10</span>
-
-                        <td>
-                            <button class="mdl-button mdl-js-button mdl-button--icon">
-                                <i class="material-icons">delete</i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="edit">
-                        <td type="center1" class="centerText">3</td>
-                        <td class="mdl-data-table__cell--non-numeric introT">
-                            Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" Movie. Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" MovieAaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" MovieAaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                            the "Need For Speed" Movie
-                        </td>
-                        <td>
-                            <div class="editShow" >
-                                <button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon">
-                                    <i class="material-icons">
-                                        edit
-                                    </i>
-                                </button>
-                                <dialog class="mdl-dialog">
-                                    <form action="#" class="mdl-cell mdl-cell--12-col">
-                                        <h4 class="mdl-dialog__title">Редактирование</h4>
-                                        <div class="mdl-dialog__content">
-                                            <div class="mdl-textfield mdl-js-textfield">
-                                                <input onchange="validation(this.value)" class="mdl-textfield__input" type="text" id="name">
-                                                <label class="mdl-textfield__label" for="name">Название задачи</label>
-                                            </div>
-                                        </div>
-                                        <div class="mdl-dialog__actions">
-                                            <button type="button" class="mdl-button">Сохранить</button>
-                                            <button type="button" class="mdl-button close">Отмена</button>
-                                        </div>
-                                    </form>
-                                </dialog>
-                            </div>
-                        </td>
-                        <td id="time3">08.12.2018</td>
-                        <span for="time3" class="mdl-tooltip mdl-tooltip--right ">в 18:02</span>
-
-                        <td>
-                            <button class="mdl-button mdl-js-button mdl-button--icon">
-                                <i class="material-icons">delete</i>
-                            </button>
-                        </td>
-                    </tr>
+<?php		
+	}
+	mysqli_free_result($result);
+	mysqli_close($conn);
+?>
                     </tbody>
                 </table>
+<?php
+if ($errMsg) {
+	echo $errMsg;
+}
+?>
                 </div>
             </div>
         </main>
     </div>
+	
     <script type="text/javascript" src="index-js.js"></script>
     <script src="./node_modules/material-design-lite/material.min.js"></script>
 </body>
-
 <!--<script>-->
     <!--function loadingPage() {-->
         <!--if (document.getElementById("load")){-->
