@@ -22,7 +22,27 @@ $(document).ready( function(){
 var dialog = document.querySelector('dialog');
 
 $("tbody").on('click', ".show-dialog", function() {
+	
+	var id = $(this).attr("id");
+	var button = $(this);
 	dialog.showModal();
+	
+	$("#save").click(function(e) {
+		e.stopImmediatePropagation();
+		var txt = $("#sample5").val();
+		$.ajax({
+			type: "POST",
+			url: "edit_task.php",
+			data: {id: id, txt: txt},
+			beforeSend: function(){
+			},
+			success:  function(){
+				button.parent().parent().prev().text(txt);
+				$("#sample5").val("");
+				dialog.close();
+			}
+		});
+	});
 });
 
 $("dialog").on('click', ".close", function() {
@@ -47,6 +67,10 @@ $("#submit").click(function() {
 		beforeSend: function(){
 		},
 		success:  function(html){
+			var errMsg = $("#errMsg");
+			if (errMsg) {
+				$("#errMsg").hide();
+			}
 			$("tbody").append(html);
 			$("div.mdl-layout__obfuscator.is-visible").trigger('click');
 		}

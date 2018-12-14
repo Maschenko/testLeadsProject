@@ -18,7 +18,7 @@ echo'
                         </td>
                         <td>
                             <div class="editShow" style="display: none">
-                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon">
+                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon" id="' . $id . '">
                                     <i class="material-icons">
                                         edit
                                     </i>

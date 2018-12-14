@@ -5,7 +5,7 @@ $sql = "SELECT * FROM tasks";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 $cnt = mysqli_affected_rows($conn);
 if (!$cnt) {
-	$errMsg = "Нет задач в базе";
+	$errMsg = '<p id="errMsg">Нет задач в базе</p>';
 } else {
 	$errMsg = "";
 }
@@ -93,7 +93,7 @@ if (!$cnt) {
 				</div>
 
 				<div class="mdl-dialog__actions">
-					<button type="button" class="mdl-button">Сохранить</button>
+					<button type="button" class="mdl-button" id="save">Сохранить</button>
 					<button type="button" class="mdl-button close">Отмена</button>
 				</div>
 			</form>
@@ -125,7 +125,7 @@ if (!$cnt) {
                         </td>
                         <td>
                             <div class="editShow" >
-                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon">
+                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon" id="<?=$row["id"]?>">
                                     <i class="material-icons">
                                         edit
                                     </i>
