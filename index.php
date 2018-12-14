@@ -77,6 +77,27 @@ if (!$cnt) {
                 </div>
             </div>
         </div>
+		<dialog class="mdl-dialog">
+			<form action="#" class="mdl-cell mdl-cell--12-col">
+				<h4 class="mdl-dialog__title">Редактирование</h4>
+				<div class="mdl-dialog__content">
+					<div class="mdl-textfield mdl-js-textfield">
+						<input onkeyup="validation()" maxlength="15" class="mdl-textfield__input" type="text" id="name">
+						<label class="mdl-textfield__label" for="name">Текст задачи</label>
+					</div>
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield">
+					<textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
+					<label class="mdl-textfield__label" for="sample5">Text lines...</label>
+				</div>
+
+				<div class="mdl-dialog__actions">
+					<button type="button" class="mdl-button">Сохранить</button>
+					<button type="button" class="mdl-button close">Отмена</button>
+				</div>
+			</form>
+		</dialog>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div class="mdl-grid mdl-cell--10-col">
@@ -104,32 +125,11 @@ if (!$cnt) {
                         </td>
                         <td>
                             <div class="editShow" >
-                                <button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon">
+                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon">
                                     <i class="material-icons">
                                         edit
                                     </i>
                                 </button>
-                                <dialog class="mdl-dialog">
-                                    <form action="#" class="mdl-cell mdl-cell--12-col">
-                                        <h4 class="mdl-dialog__title">Редактирование</h4>
-                                        <div class="mdl-dialog__content">
-                                            <div class="mdl-textfield mdl-js-textfield">
-                                                <input onkeyup="validation()" maxlength="15" class="mdl-textfield__input" type="text" id="name">
-                                                <label class="mdl-textfield__label" for="name">Текст задачи</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="mdl-textfield mdl-js-textfield">
-                                            <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
-                                            <label class="mdl-textfield__label" for="sample5">Text lines...</label>
-                                        </div>
-
-                                        <div class="mdl-dialog__actions">
-                                            <button type="button" class="mdl-button">Сохранить</button>
-                                            <button type="button" class="mdl-button close">Отмена</button>
-                                        </div>
-                                    </form>
-                                </dialog>
                             </div>
                         </td>
                         <td id="time1"><?=date("d-m-Y H:i:s", $row["datetime"])?></td>

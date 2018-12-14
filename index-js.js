@@ -17,23 +17,19 @@ function validation() {
     }
 }
 //Конец//
+$(document).ready( function(){
 //Редактирование задачи//
 var dialog = document.querySelector('dialog');
-if (dialog) {
-	var showDialogButton = document.querySelector('#show-dialog');
-	if (! dialog.showModal) {
-		dialogPolyfill.registerDialog(dialog);
-	}
-	showDialogButton.addEventListener('click', function() {
-		dialog.showModal();
-	});
-	dialog.querySelector('.close').addEventListener('click', function() {
-		dialog.close();
-	});
-}
+
+$("tbody").on('click', ".show-dialog", function() {
+	dialog.showModal();
+});
+
+$("dialog").on('click', ".close", function() {
+	dialog.close();
+});
+
 //Конец//
-//Показ-Редактирование//
-$(document).ready( function(){
     $(".editShow").hide();
     $( "tbody" ).on("mouseenter", ".edit", function() {
         $(this).find(".editShow").show();
