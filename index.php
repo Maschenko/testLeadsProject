@@ -136,7 +136,7 @@ if (!$cnt) {
                         <span for="time1" class="mdl-tooltip mdl-tooltip--right ">в 04:18</span>
 
                         <td>
-                            <button class="mdl-button mdl-js-button mdl-button--icon" id="<?=$row["id"]?>">
+                            <button class="mdl-button mdl-js-button mdl-button--icon delete" id="<?=$row["id"]?>">
                                 <i class="material-icons">delete</i>
                             </button>
                         </td>

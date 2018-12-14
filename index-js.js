@@ -52,12 +52,13 @@ $("#submit").click(function() {
 		},
 		success:  function(html){
 			$("tbody").append(html);
+			$("div.mdl-layout__obfuscator.is-visible").trigger('click');
 		}
     });
 	$("#name").val("");
 });
 
-$("tbody").on("click", "button.mdl-button.mdl-js-button.mdl-button--icon", function() {
+$("tbody").on("click", "button.mdl-button.mdl-js-button.mdl-button--icon.delete", function() {
 	var button = $(this);
 	var id = $(this).attr("id");
 	$.ajax({
