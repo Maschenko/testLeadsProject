@@ -35,6 +35,10 @@ $("tbody").on('click', ".show-dialog", function() {
 			url: "edit_task.php",
 			data: {id: id, txt: txt},
 			beforeSend: function(){
+				jQuery(window).load(function() {
+				    $(".loader-back").fadeOut();
+				    $(this).delay(2000).fadeOut("slow");
+				});
 			},
 			success:  function(){
 				button.parent().parent().prev().text(txt);
@@ -93,3 +97,7 @@ $("tbody").on("click", "button.mdl-button.mdl-js-button.mdl-button--icon.delete"
 
 });
 //Конец//
+jQuery(window).load(function() {
+    $(".loader-back").fadeOut();
+    $(this).delay(6000).fadeOut("slow");
+});

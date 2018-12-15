@@ -5,7 +5,7 @@ $sql = "SELECT * FROM tasks";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 $cnt = mysqli_affected_rows($conn);
 if (!$cnt) {
-	$errMsg = '<p id="errMsg">Нет задач в базе</p>';
+	$errMsg = ' <span id="errMsg" class="mdl-chip" style="margin-left: 44%; margin-top: 10%;"><span class="mdl-chip__text">Нет задач в базе</span></span>';
 } else {
 	$errMsg = "";
 }
@@ -33,6 +33,9 @@ if (!$cnt) {
     <meta name="msapplication-TileColor" content="#3372DF">
 </head>
 <body>
+    <div class="loader-back">
+    <div id="loader" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+    </div>
     <div class="mdl-layout mdl-js-layout">
 
         <header class="mdl-layout__header mdl-layout__header--scroll">
@@ -69,7 +72,7 @@ if (!$cnt) {
         <div class="mdl-grid mdl-cell--10-col">
             <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button buttonAdd mdl-grid">
                 <div class="mdl-grid mdl-cell--10-col">
-                    <div class="mdl-cell--4-col">
+                    <div class="mdl-grid mdl-cell--3-col">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-layout-spacer mdl-js-ripple-effect">
                             Добавить новую задачу
                         </button>
@@ -77,21 +80,15 @@ if (!$cnt) {
                 </div>
             </div>
         </div>
-		<dialog class="mdl-dialog">
+		<dialog class="mdl-dialog mdl-cell--4-col">
 			<form action="#" class="mdl-cell mdl-cell--12-col">
 				<h4 class="mdl-dialog__title">Редактирование</h4>
-				<div class="mdl-dialog__content">
-					<div class="mdl-textfield mdl-js-textfield">
-						<input onkeyup="validation()" maxlength="15" class="mdl-textfield__input" type="text" id="name">
-						<label class="mdl-textfield__label" for="name">Текст задачи</label>
-					</div>
+				<div class="mdl-dialog__content mdl-grid">
+					<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+                    <textarea onkeyup="validation()" class="mdl-textfield__input" type="text" rows= "6" id="sample5" ></textarea>
+                    <label class="mdl-textfield__label" for="sample5">Текст задачи</label>
+                </div>
 				</div>
-
-				<div class="mdl-textfield mdl-js-textfield">
-					<textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
-					<label class="mdl-textfield__label" for="sample5">Text lines...</label>
-				</div>
-
 				<div class="mdl-dialog__actions">
 					<button type="button" class="mdl-button" id="save">Сохранить</button>
 					<button type="button" class="mdl-button close">Отмена</button>
@@ -104,7 +101,7 @@ if (!$cnt) {
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell--12-col">
                     <thead>
                     <tr>
-                        <th class="mdl-data-table__cell--non-numeric mdl-data-table__header--sorted-ascending">id Задачи</th>
+                        <th class="mdl-data-table__cell--non-numeric">id Задачи</th>
                         <th class="mdl-data-table__cell--non-numeric">Текст задачи</th>
                         <th></th>
                         <th>Дата создания</th>
@@ -124,8 +121,8 @@ if (!$cnt) {
                            <?=$row["task"]?>
                         </td>
                         <td>
-                            <div class="editShow" >
-                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon" id="<?=$row["id"]?>">
+                            <div class="editShow" style="display: none">
+                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon" style="border: none; background: none;" id="<?=$row["id"]?>">
                                     <i class="material-icons">
                                         edit
                                     </i>
@@ -133,8 +130,6 @@ if (!$cnt) {
                             </div>
                         </td>
                         <td id="time1"><?=date("d-m-Y H:i:s", $row["datetime"])?></td>
-                        <span for="time1" class="mdl-tooltip mdl-tooltip--right ">в 04:18</span>
-
                         <td>
                             <button class="mdl-button mdl-js-button mdl-button--icon delete" id="<?=$row["id"]?>">
                                 <i class="material-icons">delete</i>

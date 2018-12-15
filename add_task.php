@@ -18,7 +18,7 @@ echo'
                         </td>
                         <td>
                             <div class="editShow" style="display: none">
-                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon" id="' . $id . '">
+                                <button class="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--icon" style="border: none; background: none;" id="' . $id . '">
                                     <i class="material-icons">
                                         edit
                                     </i>
@@ -26,8 +26,6 @@ echo'
                             </div>
                         </td>
                         <td id="time1">' . date('d-m-Y H:i:s', $dt) . '</td>
-                        <span for="time1" class="mdl-tooltip mdl-tooltip--right ">в 04:18</span>
-
                         <td>
                             <button class="mdl-button mdl-js-button mdl-button--icon delete" id="' . $id . '">
                                 <i class="material-icons">delete</i>
